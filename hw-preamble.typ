@@ -1,3 +1,10 @@
+// Basic layout
+#let ind2 = h(2em)
+
+#let qed = [#h(1fr)#math.qed]
+
+
+
 // Environment for algorithmic pseudocode
 #import "@preview/lovelace:0.3.0": *
 #let pseudocode = pseudocode.with(indentation-guide-stroke: 0.5pt)
@@ -52,7 +59,7 @@
     text(14pt)[=== #beginning #problem_counter.step() #context [#problem_counter.display()]]
   }
 
-  set par(first-line-indent: (amount: 2em, all: true))
+  set par(first-line-indent: (amount: 0em, all: true))
   // set par(first-line-indent: 2em)
 
   body
@@ -69,7 +76,7 @@
   }
   
   solsection_counter.update(0)
-  set par(first-line-indent: (amount: 2em, all: true))
+  set par(first-line-indent: (amount: 0em, all: true))
   // set par(first-line-indent: 2em)
 
   v(-.5em)
@@ -129,9 +136,9 @@
         column-gutter: (0pt, 6pt, 14pt, 6pt, 0pt),
         [],
         [姓名：],
-        [#align(center)[#author] #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
+        [#align(center)[*#author*] #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
         [学号：],
-        [#align(center)[#student_number] #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
+        [#align(center)[*#student_number*] #v(2pt, weak: true) #line(length: 100%, stroke: .7pt)],
         [],
 
       )
@@ -146,7 +153,8 @@
   show raw: it => {
     set text(font: ("DejaVu Sans Mono", "Noto Sans Mono CJK SC"))
     zebraw(it)
-}
+  }
+  show math.equation: set text(font: ("Latin Modern Math", "Noto Serif CJK SC"), features: ("cv01",))
   
 
 
